@@ -1,0 +1,2 @@
+# SoulSpell
+Ultimate Minecraft plugin
