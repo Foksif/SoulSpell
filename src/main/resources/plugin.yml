@@ -1,0 +1,21 @@
+name: SoulSpell
+author: Foksik
+version: '${project.version}'
+main: me.foksik.soulSpell.SoulSpell
+api-version: '1.21'
+commands:
+  broadcast:
+    description: 'BroadCast'
+    usage: /<command>
+    permission: soulspell.broadcast
+
+  sex:
+    description: 'SexCommand'
+    usage: /<command>
+    permission: soulspell.sexcommand
+
+  hat:
+    description: 'HatCommand'
+    usage: /<command>
+    permission: hatCommand.enabled
+
