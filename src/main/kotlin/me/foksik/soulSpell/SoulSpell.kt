@@ -42,11 +42,10 @@ class SoulSpell : JavaPlugin() {
         server.pluginManager.registerEvents(PlayerHeadDropListener(this), this)
 
         ActionBarCordsTask(this).start()
-
-        logger.info("SoulSpell плагин включен")
     }
 
     override fun onDisable() {
         configUtil.saveConfig()
+        logger.info("SoulSpell Disabled")
     }
 }

@@ -9,7 +9,6 @@
 
 prefix: "[SoulSpell]"
 
-
 # PlayerHeadDrop
 playerHeadDrop:
   enabled: true
@@ -41,5 +40,3 @@ sexCommand:
 globalMessage:
   onlyPlayer: "&cЭту команду может использовать только игрок!"
   noPermission: "&cУ вас нет прав на использование этой команды!"
-
-configVersion: 0.2.2
