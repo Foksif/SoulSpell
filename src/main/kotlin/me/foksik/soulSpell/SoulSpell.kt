@@ -7,6 +7,7 @@ import me.foksik.soulSpell.Utils.ConfigUtil
 import me.foksik.soulSpell.command.BroadcastCommand
 import me.foksik.soulSpell.command.HatCommand
 import me.foksik.soulSpell.command.SexCommand
+import me.foksik.soulSpell.command.SoulSpellCommand
 import org.bukkit.plugin.java.JavaPlugin
 
 class SoulSpell : JavaPlugin() {
@@ -38,9 +39,11 @@ class SoulSpell : JavaPlugin() {
             getCommand("hat")?.setExecutor(HatCommand)
         }
 
+        getCommand("soulspell")?.setExecutor(SoulSpellCommand(this))
+
 //        Listeners
         server.pluginManager.registerEvents(PlayerHeadDropListener(this), this)
-
+//        Tasks
         ActionBarCordsTask(this).start()
     }
 

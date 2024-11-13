@@ -4,7 +4,7 @@
   <groupId>me.foksik</groupId>
   <artifactId>SoulSpell</artifactId>
   <name>SoulSpell</name>
-  <version>0.3.5</version>
+  <version>0.3.6</version>
   <build>
     <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
     <defaultGoal>clean package</defaultGoal>

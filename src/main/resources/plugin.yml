@@ -19,3 +19,7 @@ commands:
     usage: /<command>
     permission: hatCommand.enabled
 
+  soulspell:
+    description: Основная команда для управления плагином SoulSpell.
+    usage: /soulspell <подкоманда>
+

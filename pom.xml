@@ -6,7 +6,7 @@
 
   <groupId>me.foksik</groupId>
   <artifactId>SoulSpell</artifactId>
-  <version>0.3.5</version>
+  <version>0.3.6</version>
   <packaging>jar</packaging>
 
   <name>SoulSpell</name>
