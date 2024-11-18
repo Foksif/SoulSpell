@@ -1,18 +1,15 @@
-package me.foksik.soulSpell.command
+package me.foksik.soulSpell.command.commands
 
-import me.foksik.soulSpell.Utils.ChatUtil
 import me.foksik.soulSpell.Utils.ChatUtil.message
 import me.foksik.soulSpell.Utils.ConfigUtil
-import org.bukkit.Bukkit
+import org.bukkit.Material
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 import org.bukkit.plugin.java.JavaPlugin
-import kotlin.random.Random
 
-object SexCommand: CommandExecutor {
-
+object HatCommand: CommandExecutor {
     private lateinit var configUtil: ConfigUtil
 
     fun init(plugin: JavaPlugin) {
@@ -21,23 +18,29 @@ object SexCommand: CommandExecutor {
 
     override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<out String>): Boolean {
         if (sender is Player) {
-            if (!sender.hasPermission("soulspell.sexcommand")) {
+            val player = sender
+            if (!player.hasPermission("hatplugin.use")) {
                 val message: String = configUtil.config.getString("globalMessage.noPermission").toString()
-                sender.message(message)
+                player.message(message)
+                return true
+            }
+            val itemInHand = player.inventory.itemInMainHand
+
+            if (itemInHand == null || itemInHand.type == Material.AIR) {
+                val message: String = configUtil.config.getString("hatCommand.message.noItem").toString()
+                player.message(message)
                 return true
             }
 
-            val players = Bukkit.getOnlinePlayers().filter { it != sender }
-            if (players.isEmpty()) {
-                val message: String = configUtil.config.getString("sexCommand.message.noPlayer").toString()
-                sender.message(message)
-                return true
-            }
+            val currentHelmet = player.inventory.helmet
+            player.inventory.helmet = itemInHand
+            player.inventory.setItemInMainHand(currentHelmet)
 
-            val randomPlayer = players[Random.nextInt(players.size)]
+            val message: String = configUtil.config.getString("hatCommand.message.success").toString()
+            val type: String = itemInHand.type.toString()
 
-            val message: String = configUtil.config.getString("sexCommand.message.textDecoration").toString()
-            ChatUtil.broadcast(message, Pair("{sender}", sender.name), Pair("{randomPlayer}", randomPlayer.name))
+            player.message(message, Pair("{type}", type))
+
         } else {
             val message: String = configUtil.config.getString("globalMessage.onlyPlayer").toString()
             sender.message(message)

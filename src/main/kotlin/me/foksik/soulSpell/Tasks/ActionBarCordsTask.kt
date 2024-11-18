@@ -12,18 +12,9 @@ class ActionBarCordsTask(private val plugin: JavaPlugin) {
             override fun run() {
                 for (player in Bukkit.getOnlinePlayers()) {
                     val itemInMainHand = player.inventory.itemInMainHand
-                    if (itemInMainHand.type.name == "COMPASS") {
-                        val location = player.location
-                        val message = CoordinatsUtil.formatCoordinats(location.blockX, location.blockY, location.blockZ)
-
-                        player.spigot().sendMessage(
-                            net.md_5.bungee.api.ChatMessageType.ACTION_BAR,
-                            net.md_5.bungee.api.chat.TextComponent(message)
-                        )
-                    }
-
                     val itemInOffHand = player.inventory.itemInOffHand
-                    if (itemInOffHand.type.name == "COMPASS") {
+
+                    if (itemInMainHand.type.name == "COMPASS" || itemInOffHand.type.name == "COMPASS") {
                         val location = player.location
                         val message = CoordinatsUtil.formatCoordinats(location.blockX, location.blockY, location.blockZ)
 
