@@ -1,5 +1,6 @@
 package me.foksik.soulSpell.command.base
 
+import me.foksik.api.Interface.ISubCommand
 import me.foksik.soulSpell.Utils.ChatUtil.message
 import me.foksik.soulSpell.Utils.ConfigUtil
 import org.bukkit.command.CommandSender

@@ -3,7 +3,8 @@ package me.foksik.soulSpell.Utils
 import org.bukkit.configuration.file.FileConfiguration
 import org.bukkit.plugin.java.JavaPlugin
 
-class ConfigUtil(private val plugin: JavaPlugin) {
+open class ConfigUtil(private val plugin: JavaPlugin) {
+
     val config: FileConfiguration
         get() = plugin.config
 

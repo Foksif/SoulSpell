@@ -17,10 +17,14 @@ object SexCommand: CommandExecutor {
     private lateinit var configUtil: ConfigUtil
 
     private val cooldowns: MutableMap<String, Long> = mutableMapOf()
-    private val cooldownTime = TimeUnit.SECONDS.toMillis(30)
+
+    private var cooldown: Int = 0
+    private var cooldownTime: Long = 0
 
     fun init(plugin: JavaPlugin) {
         configUtil = ConfigUtil(plugin)
+        cooldown = configUtil.config.getInt("sexCommand.cooldown")
+        cooldownTime = TimeUnit.SECONDS.toMillis(cooldown.toLong())
     }
 
     override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<out String>): Boolean {

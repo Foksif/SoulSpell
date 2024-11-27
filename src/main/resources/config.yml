@@ -7,7 +7,21 @@
 #  ╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱┃┃
 #  ╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╰╯ Author: Foksik
 
-prefix: "[SoulSpell]"
+prefix: "&d[SoulSpell]"
+
+# Discord connection
+discordAPI:
+  enabled: true
+  token: "<bot_token>"
+
+#ChatSettings
+chatSettings:
+  globalChat:
+    format: "&7(&6G&7) &f{player} &7» &f{message}"
+
+  localChat:
+    radius: 50 #only integer
+    format: "&7(&aL&7) &f{player} &7» &f{message}"
 
 # PlayerHeadDrop
 playerHeadDrop:
@@ -16,8 +30,13 @@ playerHeadDrop:
   message:
     headDrop: "&cВы обронили свою голову"
 
-# Commands
+# EggGloving
+eggGlovingEvent:
+  enabled: true
+  #message:
+    #Development
 
+# Commands
 broadcastCommand:
   enabled: true
   message:
@@ -33,6 +52,7 @@ hatCommand:
 
 sexCommand:
   enabled: true
+  cooldown: 30 #*
   message:
     noPlayer: "&cНа сервере нет других игроков."
     textDecoration: "{sender} трахнул игрока {randomPlayer}"
@@ -42,3 +62,7 @@ sexCommand:
 globalMessage:
   onlyPlayer: "&cЭту команду может использовать только игрок!"
   noPermission: "&cУ вас нет прав на использование этой команды!"
+
+
+#Don't touch it if you don't know what it does
+configVersion: '${project.version}'

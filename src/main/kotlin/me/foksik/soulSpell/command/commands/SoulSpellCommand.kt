@@ -1,7 +1,8 @@
 package me.foksik.soulSpell.command.commands
 
-import me.foksik.soulSpell.command.base.ISubCommand
-import me.foksik.soulSpell.command.subCommands.ReloadCommand
+import me.foksik.api.Interface.ISubCommand
+import me.foksik.soulSpell.command.subCommands.BroadcastSubCommand
+import me.foksik.soulSpell.command.subCommands.ReloadSubCommand
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
@@ -19,7 +20,8 @@ class SoulSpellCommand(plugin: JavaPlugin) : CommandExecutor, TabCompleter {
     // Инициализация подкоманд
     init {
         // Регистрация подкоманды "reload", которая будет использовать класс ReloadCommand
-        subCommands["reload"] = ReloadCommand(plugin)
+        subCommands["reload"] = ReloadSubCommand(plugin)
+        subCommands["broadcast"] = BroadcastSubCommand(plugin)
     }
 
     /**
